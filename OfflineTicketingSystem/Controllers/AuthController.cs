@@ -33,7 +33,6 @@ public class AuthController : ControllerBase
         if (user == null)
             return Unauthorized("Invalid credentials");
 
-        // فعلاً ساده (بعداً BCrypt)
         if (!BCrypt.Net.BCrypt.Verify(request.Password, user.PasswordHash))
             return Unauthorized("Invalid credentials");
 
